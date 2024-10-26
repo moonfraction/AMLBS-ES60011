@@ -3,6 +3,13 @@
 #### Convolutional Neural Network
 
 
+## Usage
+1. Open the Jupyter Notebook:
+2. The dataset should be present in the same directory as the notebook.
+3. `Run All` code blocks
+4. Predictions on the testdata is stored in `predictions.txt` as well as printed below the last cell.
+
+
 > This code provides a complete workflow for training a CNN to classify images, including data preprocessing, model training, evaluation, and prediction.
 
 
@@ -72,7 +79,7 @@ validation_generator = datagen.flow_from_directory(
     * **subset**: Specifies whether the data is for training or validation.
 
 
-## 5. Define the CNN model
+## 4. Define the CNN model
 ```
 model = Sequential([
     Conv2D(32, (3, 3), activation='relu', input_shape=(img_height, img_width, 3)),
@@ -106,7 +113,7 @@ model = Sequential([
     * **1**: Number of units.
     * **activation='sigmoid'**: Activation function for binary classification.
 
-## 6. Compile the model
+## 5. Compile the model
 ```
 model.compile(optimizer=Adam(), loss='binary_crossentropy', metrics=['accuracy'])
 ```
@@ -116,7 +123,7 @@ model.compile(optimizer=Adam(), loss='binary_crossentropy', metrics=['accuracy']
     * **metrics**: List of metrics to be evaluated by the model during training and testing (`accuracy`).
 
 
-## 7. Train the model
+## 6. Train the model
     
 ```
 history = model.fit(
@@ -135,13 +142,13 @@ history = model.fit(
     * **validation_steps**: Total number of steps (batches of samples) to yield from the generator before stopping validation.
     * **epochs**: Number of epochs to train the model.
 
-## 8. Save the model
+## 7. Save the model
 ```
 model.save('model.h5')
 ```
 * **save**: Saves the model to a file.
 
-## 9. Plot training & validation accuracy and loss
+## 8. Plot training & validation accuracy and loss
 ```
 
 acc = history.history['accuracy']
@@ -174,7 +181,7 @@ plt.show()
 * **plt.title**: Adds a title.
 * **plt.show**: Displays the plot.
 
-## 10. Predict on test images
+## 9. Predict on test images
 ```
 test_images = [os.path.join(test_path, img) for img in os.listdir(test_path)]
 predictions = []
@@ -193,7 +200,7 @@ for img_path in test_images:
 * **np.expand_dims**: Expands the shape of an array.
 * **model.predict**: Generates output predictions for the input samples
 
-## 11. Save predictions
+## 10. Save predictions
 ```
 with open('predictions.txt', 'w') as f:
     for img_path, pred in zip(test_images, predictions):
