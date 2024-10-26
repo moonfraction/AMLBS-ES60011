@@ -1,0 +1,14 @@
+thirteen.png: malignant
+ten.png: malignant
+three.png: malignant
+fourteen.png: malignant
+six.png: benign
+two.png: benign
+four.png: malignant
+twelve.png: benign
+eight.png: malignant
+five.png: malignant
+one.png: benign
+seven.png: benign
+eleven.png: malignant
+nine.png: malignant

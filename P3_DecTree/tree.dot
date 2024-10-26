@@ -1,0 +1,8 @@
+strict digraph "" {
+	node [label="\N"];
+	5152289344	[label="Survival Months < 48"];
+	4954425344	[label="class 1"];
+	5152289344 -> 4954425344;
+	5151728640	[label="class 0"];
+	5152289344 -> 5151728640;
+}
